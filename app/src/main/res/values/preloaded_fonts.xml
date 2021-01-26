@@ -2,5 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/adamina</item>
+        <item>@font/passion_one</item>
+        <item>@font/passion_one_bold</item>
     </array>
 </resources>

@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.rgb(42, 66, 186))); // set your desired color
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.rgb(42, 66, 186)));
+        getSupportActionBar().setTitle("");
 
         setContentView(R.layout.activity_main);
         RecyclerView rvmovies = findViewById(R.id.rvMovies);
