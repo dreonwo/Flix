@@ -11,6 +11,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Flix"
-        android:textColor="#ffffff"
+        android:textColor="#F1EBEB"
         android:textSize="18dp" />
 </LinearLayout>

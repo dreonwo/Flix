@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.app.ActionBar;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -32,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.rgb(42, 66, 186))); // set your desired color
+
         setContentView(R.layout.activity_main);
         RecyclerView rvmovies = findViewById(R.id.rvMovies);
         movies = new ArrayList<>();

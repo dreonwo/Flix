@@ -2,6 +2,7 @@ package com.example.flix.adapters;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +54,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         return movies.size();
     }
 
+    public ImageView img(){
+        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, null);
+        ImageView img = movieView.findViewById(R.id.ivPoster);
+        return img;
+    }
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView tvTitle;
@@ -81,7 +87,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 imageUrl = movie.getPosterPath();
             }
 
-            Glide.with(context).load(imageUrl).into(ivPoster);
+            Glide.with(context).load(imageUrl).placeholder(Drawable.createFromPath("http://via.placeholder.com/300.png")).into(ivPoster);
         }
     }
 }
