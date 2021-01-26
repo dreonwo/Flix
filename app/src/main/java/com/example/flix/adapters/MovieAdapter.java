@@ -87,7 +87,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 imageUrl = movie.getPosterPath();
             }
 
-            Glide.with(context).load(imageUrl).placeholder(Drawable.createFromPath("http://via.placeholder.com/300.png")).into(ivPoster);
+            Glide.with(context).load(imageUrl).placeholder(Drawable.createFromPath("/loading_image")).into(ivPoster);
         }
     }
 }

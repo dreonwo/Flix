@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().hide();
 
+
         setContentView(R.layout.activity_main);
         RecyclerView rvmovies = findViewById(R.id.rvMovies);
         movies = new ArrayList<>();
