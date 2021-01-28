@@ -10,6 +10,12 @@
 
     >
 
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/player"
+        android:transitionName="details"
+        android:layout_width="match_parent"
+        android:layout_height="250dp" />
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
