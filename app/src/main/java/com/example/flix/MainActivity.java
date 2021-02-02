@@ -1,6 +1,7 @@
 package com.example.flix;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import android.util.Log;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.flix.adapters.MovieAdapter;
+import com.example.flix.databinding.ActivityMainBinding;
 import com.example.flix.models.Movie;
 
 import org.json.JSONArray;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
     public static final String TAG = "MainActivity";
+    private ActivityMainBinding binding;
 
     List<Movie> movies;
     @Override
@@ -40,8 +43,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
-        setContentView(R.layout.activity_main);
-        RecyclerView rvmovies = findViewById(R.id.rvMovies);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        RecyclerView rvmovies = binding.rvMovies;
+
         movies = new ArrayList<>();
 
         //Create the Adapter

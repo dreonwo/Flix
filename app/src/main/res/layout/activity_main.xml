@@ -1,65 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#D5A823"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <RelativeLayout
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMovies"
         android:layout_width="match_parent"
-        android:layout_height="545dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="#2A42BA" />
+        android:layout_height="match_parent"
+        android:background="#D5A823"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMovies"
+            android:layout_width="match_parent"
+            android:layout_height="545dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="#2A42BA" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:transitionName="details"
-        android:layout_width="135dp"
-        android:layout_height="136dp"
-        android:layout_above="@+id/rvMovies"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="276dp"
-        android:layout_marginBottom="-1dp"
-        app:srcCompat="@drawable/movie_icon" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:transitionName="details"
+            android:layout_width="135dp"
+            android:layout_height="136dp"
+            android:layout_above="@+id/rvMovies"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="276dp"
+            android:layout_marginBottom="-1dp"
+            app:srcCompat="@drawable/movie_icon" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="139dp"
-        android:layout_height="137dp"
-        android:layout_above="@+id/rvMovies"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="-2dp"
-        app:srcCompat="@drawable/movie_icon" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="139dp"
+            android:layout_height="137dp"
+            android:layout_above="@+id/rvMovies"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="140dp"
+            android:layout_marginBottom="-2dp"
+            app:srcCompat="@drawable/movie_icon" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="141dp"
-        android:layout_height="135dp"
-        android:layout_above="@+id/rvMovies"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="0dp"
-        app:srcCompat="@drawable/movie_icon" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="141dp"
+            android:layout_height="135dp"
+            android:layout_above="@+id/rvMovies"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="-2dp"
+            android:layout_marginBottom="0dp"
+            app:srcCompat="@drawable/movie_icon" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="65dp"
-        android:layout_above="@+id/rvMovies"
-        android:layout_alignEnd="@+id/imageView3"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="37dp"
-        android:text="Flixster"
-        android:textAlignment="center"
-        android:textColor="#F3EBEB"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_above="@+id/rvMovies"
+            android:layout_alignEnd="@+id/imageView3"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="37dp"
+            android:text="Flixster"
+            android:textAlignment="center"
+            android:textColor="#F3EBEB"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

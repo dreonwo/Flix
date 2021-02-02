@@ -14,18 +14,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.flix.DetailActivity;
 import com.example.flix.MainActivity;
 import com.example.flix.R;
+import com.example.flix.databinding.ActivityMainBinding;
+import com.example.flix.databinding.ItemMovieBinding;
 import com.example.flix.models.Movie;
 
 import org.parceler.Parcels;
 
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
@@ -42,8 +48,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     //Usually involves inflating a layout from XML and returning the holder
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.d("MovieAdapter", "onCreateViewHolder");
-        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
-        return new ViewHolder(movieView);
+        LayoutInflater lf = LayoutInflater.from(context);
+        ItemMovieBinding binding = ItemMovieBinding.inflate(lf,parent,false);
+        return new ViewHolder(binding);
     }
 
     @Override
@@ -69,25 +76,20 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tvTitle;
-        TextView tvOverview;
-        ImageView ivPoster;
-        RelativeLayout container;
+        private ItemMovieBinding binding;
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
+        public ViewHolder(@NonNull ItemMovieBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
 
-           tvTitle = itemView.findViewById(R.id.tvTitle);
-           tvOverview = itemView.findViewById(R.id.tvOverview);
-           ivPoster = itemView.findViewById(R.id.ivPoster);
-            container = itemView.findViewById(R.id.container);
 
         }
 
         public void bind(Movie movie) {
 
-            tvTitle.setText(movie.getTitle());
-            tvOverview.setText(movie.getOverview());
+            binding.tvTitle.setText(movie.getTitle());
+            binding.tvOverview.setText(movie.getOverview());
+
             String imageUrl;
 
             if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
@@ -97,20 +99,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 imageUrl = movie.getPosterPath();
             }
 
-            Glide.with(context).load(imageUrl).placeholder(Drawable.createFromPath("/loading_image")).into(ivPoster);
+            Glide.with(context).load(imageUrl).transform(new RoundedCornersTransformation(200,10)).placeholder(Drawable.createFromPath("/loading_image")).into(binding.ivPoster);
 
             //1. Register Click Listener on whole row
             //2. Navigate to new activity on tap
 
-            container.setOnClickListener(new View.OnClickListener() {
+            binding.container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, DetailActivity.class);
                     i.putExtra("movie", Parcels.wrap(movie));
-//                    ActivityOptionsCompat options = ActivityOptionsCompat.
-//                            makeSceneTransitionAnimation(MovieAdapter.this, (View)ivPoster, "details");
-                    //options.toBundle()
-                    context.startActivity(i);
+                    ActivityOptionsCompat options = ActivityOptionsCompat.
+                            makeSceneTransitionAnimation((AppCompatActivity)context, (View)binding.ivPoster, "details");
+                    context.startActivity(i,options.toBundle());
                 }
             });
         }
