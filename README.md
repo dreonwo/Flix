@@ -19,8 +19,8 @@
 
 ### App Walkthough GIF
 
-<img src="Flix_with_trailer.gif" width=250><br>
-<img src="Flix_landscape_with_trailer.gif" width=250><br>
+<img src="Flix.gif" width=250><br>
+<img src="Flix_landscape.gif" width=250><br>
 
 ### Notes
 
